@@ -1,8 +1,46 @@
 # The-skill-to-install-Qwem3.5-9B-locally
 how to install Qwem3.5-9B locally?Here is!
 
+## 只需要8G GPU即可本地运行你的Qwen
+---
 # 首先下载llama_cpp_python-0.3.29-py3-none-win_amd64.whl 安装包和 Qwen3.5-9B-Q4_K_S.gguf 模型文件
 
+一、 Qwen3.5-9B-Q4_K_S.gguf 模型文件下载
+大模型的 .gguf 格式文件通常托管在 AI 社区。这里提供两个最方便的下载去处：
+
+1. 国际主流渠道：Hugging Face
+下载地址： * Unsloth 仓库：Hugging Face - unsloth/Qwen3.5-9B-GGUF https://huggingface.co/unsloth/Qwen3.5-9B-GGUF
+Bartowski 仓库：Hugging Face - bartowski/Qwen_Qwen3.5-9B-GGUF https://huggingface.co/bartowski/Qwen_Qwen3.5-9B-GGUF
+下载方法： 打开链接后，点击顶部的 Files and versions 标签页，在文件列表中向下滚动找到 Qwen3.5-9B-Q4_K_S.gguf（大小约为 5.39 GB），点击文件名右侧的下载箭头 (Download file) 即可。
+
+💡 提示： 如果你在国内无法直接直接访问 Hugging Face，可以将网址中的 huggingface.co 替换为国内镜像站 hf-mirror.com（例如：https://hf-mirror.com/unsloth/Qwen3.5-9B-GGUF）进行高速下载。
+
+2. 国内加速渠道：ModelScope (魔搭社区)
+Qwen（通义千问）是阿里旗下的模型，因此在国内的魔搭社区上有非常完备的备份，免翻墙且下载速度极快。
+
+下载地址： ModelScope 魔搭社区官方网站 https://modelscope.cn/
+
+下载方法： 在网站顶部搜索框输入 Qwen3.5-9B GGUF，进入相关的模型详情页，点击“文件及版本”即可直接点击下载对应的 .gguf 文件。
+
+二、 llama_cpp_python-0.3.29-py3-none-win_amd64.whl 下载
+1. 官方渠道：GitHub Releases
+官方所有的历史版本和预编译包都会存在 GitHub 的发布页面。
+
+下载地址： GitHub - abetlen/llama-cpp-python/releases  https://github.com/abetlen/llama-cpp-python/releases
+
+下载方法： 1. 打开页面后向下滚动，找到 v0.3.29 这个版本的发布日志（如果没有，可以直接在页面搜索 0.3.29）。
+2. 点击该版本底部的 Assets（资产）展开列表。
+3. 在列表中找到 llama_cpp_python-0.3.29-py3-none-win_amd64.whl，点击即可下载。
+
+2. 独立显卡加速版（CUDA）的补充渠道（可选）
+需要注意的是，官方自带的 py3-none 通用包通常默认是纯 CPU 解码。如果你有 NVIDIA 独立显卡（如 RTX 30/40/50 系列）并希望实现硬件加速，通常需要去专门的预编译仓库下载带 CUDA 支持的 Whl 包。
+显卡加速预编译库： Hugging Face - dougeeai/llama-cpp-python-wheels  https://huggingface.co/dougeeai/llama-cpp-python-wheels
+
+
+
+
+
+---
 我们将采用**虚拟环境**来隔离部署，这样既能保证环境干净，又方便后续管理。
 
 ---
